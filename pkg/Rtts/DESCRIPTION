@@ -1,0 +1,11 @@
+Package: Rtts
+Type: Package
+Title: Convert text into speech (voice files in .mp3, .flv, and .wav format).
+Version: 0.1
+Date: 2015-05-22
+Author: DENG, Xiaodong
+Maintainer: DENG, Xiaodong <xd_deng@homtail.com>
+Description: Implement Text-To-Speech in R environment with Google Translate API.
+URL: http://www.seekingqed.com
+License: GPL
+LazyData: TRUE
