@@ -1,5 +1,3 @@
-##  http://tts.itri.org.tw/development/web_service_api.php
-
 tts_ITRI <- function(text="hello",
                      account="test-for-r",
                      password="test1for1r",
