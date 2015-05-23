@@ -5,10 +5,12 @@
 Convert Text into Speech (voice files in .flv format)
 }
 \description{
-Convert text into speech (voice files in .flv format) using the trial API offered by ITRI TTS @web (https://tts.itri.org.tw). English and Chinese (both traditional and simplified) are supported. PHP is required on user's machine.
+Convert text into speech (voice files in .flv format) using the trial API offered by ITRI TTS @web (https://tts.itri.org.tw). English and Chinese (both traditional and simplified) are supported. 
+
+Internet connection and PHP on user's machine are required.
 }
 \usage{
-tts_ITRI(text = "hello", account="test-for-r", password ="test1for1r", destfile = ...)
+tts_ITRI(text ="hello",account="test-for-r",password ="test1for1r",destfile = target_location,warning.off=FALSE)
 }
 
 \arguments{
@@ -23,6 +25,9 @@ tts_ITRI(text = "hello", account="test-for-r", password ="test1for1r", destfile 
 }
   \item{destfile}{
   The path to save the audio files generated plus the file name (including the postfix).
+}
+  \item{warning.off}{
+  By set warning.off=TRUE (default value is FALSE),User can opt to turn off the warning which will appear if user uses the default test account.
 }
 }
 \details{
@@ -45,7 +50,7 @@ http://tts.itri.org.tw
 %% ~~objects to See Also as \code{\link{help}}, ~~~
 }
 \examples{
-  tts_ITRI("Hello world.", "test-for-r", "test1for1r")
+  tts_ITRI("Hello world.", "test-for-r", "test1for1r", warning.off=FALSE)
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory.

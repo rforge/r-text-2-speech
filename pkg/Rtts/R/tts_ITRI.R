@@ -3,7 +3,26 @@
 tts_ITRI <- function(text="hello",
                      account="test-for-r",
                      password="test1for1r",
-                     destfile=paste(getwd(),"/RTTS.flv",sep="")){
+                     destfile=paste(getwd(),"/RTTS.flv",sep=""),
+                     warning.off=FALSE){
+  
+  # Remind the users of the potential risk.
+  if(warning.off==FALSE & account=="test-for-r"){
+    cat("REMINDER:\n")
+    cat("Please not that you're using the default test account.\n")
+    cat("This is a public account, which means that the text you submitted may be released.\n")
+    cat("You may want to register a private ITRI account for free:\n")
+    cat("http://tts.itri.org.tw\n\n")
+    
+    reminder="initial"
+    while(!reminder %in% c("Y","N")){
+      reminder <- readline("Proceed(Y) or Quit(N)?\n")
+    }
+    if(reminder=="N"){
+      return()
+    }
+  }
+  
   
   # part 0-1: check if php is installed
   
@@ -76,7 +95,7 @@ tts_ITRI <- function(text="hello",
   #so here we check if the process is completed
   cat("\nITRI TTS is processing your request.\n")
   cat("A few seconds may be needed.\n\n")
-  cat("Please ignore the messages \"PHP Notice\"")
+  cat("Please ignore the messages \"PHP Notice\" and wait a moment.")
   t_mark <- Sys.time()
   
   while(strsplit(get_url(account,password,ID = query_ID),split = "&")[[1]][4]!="completed"){
