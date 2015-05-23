@@ -12,19 +12,19 @@ tts_ITRI <- function(text="hello",
     check_result <- grep("php",system("ls /usr/bin", intern=TRUE))
   }
   if(Sys.info()[1]=="Windows"){
-    warning("Windows not supported temporarily.")
-    stop()
+    cat("Windows not supported temporarily.")
+    return()
   }
   if(!Sys.info()[1] %in% c("Linux","Windows")){
-    warning("Your platform (operation system) can't be detected.\n")
-    stop()
+    cat("Your platform (operation system) can't be detected.\n")
+    return()
   }
   
   if(length(check_result)>0){
     cat("php is well installed on your machine. ... WELL\n\n")
   }else{
     cat("php is not installed on your machine.\nPlease install php prior using this package.\n\n")
-    stop()
+    return()
   }
   
   
