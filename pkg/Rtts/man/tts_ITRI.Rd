@@ -8,7 +8,7 @@ Convert Text into Speech (voice files in .flv format)
 Convert text into speech (voice files in .flv format) using the trial API offered by ITRI TTS @web (https://tts.itri.org.tw). English and Chinese (both traditional and simplified) are supported. PHP is required on user's machine.
 }
 \usage{
-tts_ITRI(text = "hello", account="test-for-r", password ="test1for1r", ...)
+tts_ITRI(text = "hello", account="test-for-r", password ="test1for1r", destfile = ...)
 }
 
 \arguments{
