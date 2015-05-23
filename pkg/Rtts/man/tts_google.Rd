@@ -38,7 +38,7 @@ https://translate.google.com
 %% ~~objects to See Also as \code{\link{help}}, ~~~
 }
 \examples{
-  tts_google("Hello world。")
+  tts_google("Hello world.")
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory.
