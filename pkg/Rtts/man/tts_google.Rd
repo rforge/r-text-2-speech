@@ -2,7 +2,7 @@
 \alias{tts_google}
 
 \title{
-Convert text into speech (voice files in .mp3 format)
+Convert Text into Speech (voice files in .mp3 format)
 }
 \description{
 Convert text into speech (voice files in .mp3 format) using the trial API offered by Google Translate (https://translate.google.com). Note that this function can only help convert restricted-length text (roughly nchar(text)<=100).
@@ -24,11 +24,9 @@ tts_google(content = "hello world", destfile = where to save + voice file name)
 }
 \references{
 https://translate.google.com
-http://stackoverflow.com/questions/9893175/google-text-to-speech-api
-
 }
 \author{
-  DENG, Xiaodong
+  DENG Xiaodong
 }
 \note{
 
