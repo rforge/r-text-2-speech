@@ -10,7 +10,7 @@ Convert text into speech (voice files in .flv format) using the trial API offere
 Internet connection and PHP on user's machine are required.
 }
 \usage{
-tts_ITRI(text ="hello",account="test-for-r",password ="test1for1r",destfile = target_location,warning.off=FALSE)
+tts_ITRI(text ="hello",account="test-for-r",password ="test1for1r",destfile = ...)
 }
 
 \arguments{
@@ -27,7 +27,7 @@ tts_ITRI(text ="hello",account="test-for-r",password ="test1for1r",destfile = ta
   The path to save the audio files generated plus the file name (including the postfix).
 }
   \item{warning.off}{
-  By set warning.off=TRUE (default value is FALSE),User can opt to turn off the warning which will appear if user uses the default test account.
+  By set warning.off=TRUE, User can opt to turn off the warning which will appear if user uses the default test account.
 }
 }
 \details{
@@ -50,7 +50,7 @@ http://tts.itri.org.tw
 %% ~~objects to See Also as \code{\link{help}}, ~~~
 }
 \examples{
-  tts_ITRI("Hello world.", "test-for-r", "test1for1r", warning.off=FALSE)
+  tts_ITRI("Hello world.", "test-for-r", "test1for1r", warning.off=TRUE)
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory.
