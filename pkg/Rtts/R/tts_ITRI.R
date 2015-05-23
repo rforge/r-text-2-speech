@@ -13,7 +13,7 @@ tts_ITRI <- function(text="hello",
   }
   if(Sys.info()[1]=="Windows"){
     warning("Windows not supported temporarily.")
-    stop
+    stop()
   }
   if(!Sys.info()[1] %in% c("Linux","Windows")){
     warning("Your platform (operation system) can't be detected.\n")
