@@ -84,7 +84,7 @@ tts_ITRI <- function(text="hello",
     a="php -r "
     b_1 <- '$client = new SoapClient("http://tts.itri.org.tw/TTSService/Soap_1_3.php?wsdl");$result=$client->GetConvertStatus('
     
-    b_2 <- ');$resultArray= explode("&",$result);list($resultCode, $resultString, $statusCode, $status, $resultUrl) = $resultArray;echo $result;'
+    b_2 <- ');echo $result;'
     
     b <- paste(b_1,account,',',password,',',ID,b_2,sep='"')
     
