@@ -3,7 +3,7 @@ Type: Package
 Title: Convert Text into Speech (Voice Files in .mp3, .flv, and .wav Format).
 Depends: PHP
 Version: 0.2
-Date: 2015-05-22
+Date: 2015-05-23
 Author: DENG Xiaodong
 Maintainer: DENG Xiaodong <xd_deng@homtail.com>
 Description: Implement Text-To-Speech in R environment with Google Translate API.
