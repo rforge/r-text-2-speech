@@ -45,7 +45,7 @@ http://tts.itri.org.tw
 %% ~~objects to See Also as \code{\link{help}}, ~~~
 }
 \examples{
-  tts_ITRI("Let us do it", "test-for-r", "test1for1r")
+  tts_ITRI("Hello world.", "test-for-r", "test1for1r")
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory.
