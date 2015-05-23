@@ -56,10 +56,7 @@ tts_ITRI <- function(text="hello",
     a="php -r "
     b_1 <- '$client = new SoapClient("http://tts.itri.org.tw/TTSService/Soap_1_3.php?wsdl");
   $result=$client->ConvertText('
-    b_2 <- ',"Theresa",100, 0, "flv");
-  $resultArray= explode("&",$result);
-  list($resultCode, $resultString, $resultConvertID) = $resultArray;
-  echo $resultConvertID;'
+    b_2 <- ',"Theresa",100, 0, "flv");echo $result;'
     
     b <- paste(b_1,account,',',password,',',text,b_2,sep='"')
     query <- paste(a,b," ",sep="'")
@@ -67,9 +64,19 @@ tts_ITRI <- function(text="hello",
     #   write(query,file="/home/deng/TTS_1.bash")
     # 
     #   query_result_ID <- system("bash /home/deng/TTS_1.bash",intern = TRUE)
-    query_result_ID <- system(query, intern = TRUE)
-    cat("ID obtained: ",query_result_ID,"\n")
-    return(query_result_ID)
+    query_result <- system(query, intern = TRUE)
+    
+    # Here we can check if the loging is valid by the result( if the account or password is valid)
+    if(strsplit(query_result,split = "&")[[1]][2]=="invalid login"){
+      cat("Invalid login\n")
+      cat("Please check your account ID or password.\n\n")
+      return("INVALID_LOGIN")
+    }
+    
+    cat("ID obtained: ",
+        strsplit(query_result,split = "&")[[1]][3],
+        "\n")
+    return(strsplit(query_result,split = "&")[[1]][3])
   }
   
   # part 2: get file URL
@@ -90,13 +97,15 @@ tts_ITRI <- function(text="hello",
   
   # part 3: download the file
   query_ID <- get_ID(text,account,password)
+  if(query_ID=="INVALID_LOGIN"){
+    return()
+  }
   
   #as the ITRI needs some time to process, 
   #so here we check if the process is completed
   cat("\nITRI TTS is processing your request.\n")
   cat("A few seconds may be needed.\n\n")
   cat("Please ignore the messages \"PHP Notice\" and wait a moment.")
-  t_mark <- Sys.time()
   
   while(strsplit(get_url(account,password,ID = query_ID),split = "&")[[1]][4]!="completed"){
     Sys.sleep(1)
