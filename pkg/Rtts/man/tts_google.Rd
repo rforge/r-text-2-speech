@@ -8,7 +8,7 @@ Convert Text into Speech (voice files in .mp3 format)
 Convert text into speech (voice files in .mp3 format) using the trial API offered by Google Translate (https://translate.google.com). Note that this function can only help convert restricted-length text (roughly nchar(text)<=100).
 }
 \usage{
-tts_google(content = "hello world", destfile = where to save + voice file name)
+tts_google(content = "hello world", destfile = location)
 }
 
 \arguments{

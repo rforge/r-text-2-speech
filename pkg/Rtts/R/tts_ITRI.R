@@ -8,13 +8,26 @@ tts_ITRI <- function(text="hello world",
   # part 0-1: check if php is installed
   
   cat("\nREQUIREMENT CHECK:\n")
-  php_check <- system("php -v", intern = TRUE)
-  if(substr(php_check[1],1,3)!="PHP"){
+  if(Sys.info()[1]=="Linux"){
+    check_result <- grep("php",system("ls /usr/bin", intern=TRUE))
+  }
+  if(Sys.info()[1]=="Windows"){
+    warning("Windows not supported temporarily.")
+    stop
+  }
+  if(!Sys.info()[1] %in% c("Linux","Windows")){
+    warning("Your platform (operation system) can't be detected.\n")
+    stop()
+  }
+  
+  if(length(check_result)>0){
+    cat("php is well installed on your machine. ... WELL\n\n")
+  }else{
     cat("php is not installed on your machine.\nPlease install php prior using this package.\n\n")
     stop()
-  }else{
-    cat("php is well installed on your machine. ... WELL\n\n")
   }
+  
+  
   
   # part 0-2: check if can access the API
   
