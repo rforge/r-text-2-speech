@@ -2,7 +2,7 @@ tts_ITRI <- function(text="hello",
                      account="test-for-r",
                      password="test1for1r",
                      destfile=paste(getwd(),"/RTTS.flv",sep=""),
-                     warning.off=FALSE){
+                     warning.off=TRUE){
   
   # Remind the users of the potential risk.
   if(warning.off==FALSE & account=="test-for-r"){
