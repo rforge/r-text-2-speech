@@ -15,7 +15,7 @@ tts_google <- function(content="hello world",
 
   query <- paste(query_head,query_content,sep="")
 
-  download.file(query,
+  curl_download(query,
                 destfile)
   cat("The voice file is generated in:",destfile,"\n")
 
