@@ -5,7 +5,7 @@ Version: 0.2.2
 Date: 2015-05-23
 Author: DENG Xiaodong
 Maintainer: DENG Xiaodong <xd_deng@homtail.com>
-Description: Implement Text-To-Speech in R environment with APIs offered by Google Translate and ITRI TTS @web.
+Description: Implement Text-To-Speech in R environment with APIs offered by Google Translate, ITRI TTS @web and Miscrosoft.
 URL: http://www.seekingqed.com
 License: GPL
 LazyData: TRUE
