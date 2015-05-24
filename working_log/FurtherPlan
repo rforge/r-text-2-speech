@@ -1,3 +1,9 @@
 (1) the API offered by Microsoft may be considered.
 
 (2) add more features to tts_ITRI() function
+
+(3) In windows, we can use Sys.getenvo() function and in it we can find the softwares installed and added into the environment variables. So the "check: if php is configured (installed and added to the environment)" can be figured out.
+
+(4) In windows, even if the php is added to the environment variables, seems like the tts_ITRI() function still can't work. the command utilizations in windows and in linux seems a little bit different.
+
+(5) the tts_google can work in windows system, but the mp3 file obtained sounds weird. and really have no idea why.
