@@ -1,7 +1,7 @@
 Package: Rtts
 Type: Package
 Title: Convert Text into Speech (Voice Files in .mp3, .flv, and .wav Format)
-Depends: curl
+Depends: RCurl
 Version: 0.2.2
 Date: 2015-05-23
 Author: DENG Xiaodong

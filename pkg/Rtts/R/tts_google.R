@@ -15,8 +15,9 @@ tts_google <- function(content="hello world",
 
   query <- paste(query_head,query_content,sep="")
 
-  curl_download(query,
-                destfile)
+  binary_file <- getURLContent(query)
+  binary_file <- as.vector(binary_file)
+  writeBin(binary_file, destfile)
   cat("The voice file is generated in:",destfile,"\n")
 
 }
