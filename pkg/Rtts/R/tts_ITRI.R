@@ -22,7 +22,7 @@ tts_ITRI <- function(text="hello",
   if(length(check_result)>0){
     cat("php is well installed on your machine. ... WELL\n\n")
   }else{
-    cat("php is not installed on your machine.\nPlease install php prior using this package.\n\n")
+    cat("php is not installed on your machine (Linux: /usr/bin).\nPlease install php prior using this package.\n\n")
     return()
   }
   
