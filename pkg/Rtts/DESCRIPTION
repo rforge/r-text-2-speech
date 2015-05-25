@@ -2,11 +2,11 @@ Package: Rtts
 Type: Package
 Title: Convert Text into Speech (Voice Files in .mp3, .flv, and .wav Format)
 Depends: RCurl
-Version: 0.2.2
-Date: 2015-05-23
+Version: 0.2.3
+Date: 2015-05-25
 Author: DENG Xiaodong
 Maintainer: DENG Xiaodong <xd_deng@hotmail.com>
 Description: Implement Text-To-Speech in R environment with APIs offered by Google Translate, ITRI TTS @web and Miscrosoft.
 URL: http://www.seekingqed.com
-License: GPL
+License: GPL-3
 LazyData: TRUE
