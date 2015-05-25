@@ -1,4 +1,4 @@
-Package: Rtts
+Package: RttsDevelop
 Type: Package
 Title: Convert Text into Speech (Voice Files in .mp3, .flv, and .wav Format)
 Depends: RCurl
