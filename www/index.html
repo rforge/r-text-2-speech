@@ -15,7 +15,7 @@
 	-->
 	</style>
 </head>
-<body lang="en-US" text="#000000" dir="ltr" background="/image/galleryhip.com_blacksmiths-at-work.html.gif">
+<body lang="en-US" text="#000000" dir="ltr" >
 
 
 <p>
@@ -24,84 +24,89 @@
 </a>
 </p>
 
-<p style="margin-bottom: 0cm; line-height: 100%"><font face="Century Schoolbook L, serif"><font size="4" style="font-size: 16pt"><b>Welcome
+<p style="margin-bottom: 0cm;margin-left:0.5cm; line-height: 100%"><font face="Century Schoolbook L, serif"><font size="4" style="font-size: 16pt"><b>Welcome
 to the homepage of R project “R-text-to-speech”! </b></font></font>
 </p>
-<p style="margin-bottom: 0cm; line-height: 100%"><font face="Century Schoolbook L, serif"><font size="4" style="font-size: 16pt">
-<a href="http://r-forge.r-project.org/projects/r-text-2-speech/">Project Summary Page</a></font></p>
-<p style="margin-bottom: 0cm; line-height: 100%"><br>
-</p>
-<p style="margin-bottom: 0cm; line-height: 100%"><font face="Century Schoolbook L, serif">The
+<p style="margin-bottom: 0cm; line-height: 100%"><br></p>
+
+
+<p style="margin-bottom: 0cm; margin-left:0.5cm;line-height: 100%"><font face="Century Schoolbook L, serif"><b>NEWS</b></font></p>
+
+<p style="margin-bottom: 0cm; margin-left:0.5cm;line-height: 100%"><font face="Century Schoolbook L, serif"> 
+The stable version 0.2.5 of package "<b>Rtts</b>" is already published on CRAN from May 26 2015 (<a href="http://cran.r-project.org/web/packages/Rtts/"><font color="blue">Link</font></a>).   
+</font></p>
+
+<p style="margin-bottom: 0cm; margin-left:0.5cm;line-height: 100%"><font face="Century Schoolbook L, serif">
+To install it, please run <font color="blue">install.packages("Rtts")</font> in your R console. Note that only <b>tts_google()</b> function is applicable in this version for stability.
+</font></p>
+
+<p style="margin-bottom: 0cm; margin-left:0.5cm;line-height: 100%"><font face="Century Schoolbook L, serif">
+You can also install the developing version from R-Forge by running <font color="blue">install.packages("RttsDevelop", repos="http://R-Forge.R-project.org")</font>, in which I'm still trying to add more functions and features.
+</font></p>
+
+
+<p style="margin-bottom: 0cm;margin-left:0.5cm; line-height: 100%"><br></p>
+
+
+<p style="margin-bottom: 0cm; margin-left:0.5cm;line-height: 100%"><font face="Century Schoolbook L, serif"><b>Introduction</b></font></p>
+
+<p style="margin-bottom: 0cm; margin-left:0.5cm;line-height: 100%"><font face="Century Schoolbook L, serif">The
 main purpose of this project is to implement an R package “Rtts”
 which helps convert text into speech (.mp3, .flv and .wav files) in R environment. </font>
 </p>
-<p style="margin-bottom: 0cm; line-height: 100%"><font face="Century Schoolbook L, serif">This
+<p style="margin-bottom: 0cm;margin-left:0.5cm; line-height: 100%"><font face="Century Schoolbook L, serif">This
 purpose is fulfilled using APIs offered by</font></p>
-<p style="margin-bottom: 0cm; line-height: 100%"><font face="Century Schoolbook L, serif">(1)
+<p style="margin-bottom: 0cm;margin-left:0.5cm; line-height: 100%"><font face="Century Schoolbook L, serif">(1)
 Google Translate (<a href="https://translate.google.com/">https://translate.google.com</a>)</font></p>
-<p style="margin-bottom: 0cm; line-height: 100%"><font face="Century Schoolbook L, serif">(2)
+<p style="margin-bottom: 0cm;margin-left:0.5cm; line-height: 100%"><font face="Century Schoolbook L, serif">(2)
 ITRI TTS @web (<a href="http://tts.itri.org.tw/">http://tts.itri.org.tw</a>)</font></p>
-<p style="margin-bottom: 0cm; line-height: 100%"><font face="Century Schoolbook L, serif">(3)
+<p style="margin-bottom: 0cm; margin-left:0.5cm;line-height: 100%"><font face="Century Schoolbook L, serif">(3)
 Microsoft Oxford Porject (<a href="http://www.projectoxford.ai/">http://www.projectoxford.ai/</a>)</font></p>
 
-<p style="margin-bottom: 0cm; line-height: 100%"><br>
+<p style="margin-bottom: 0cm;margin-left:0.5cm; line-height: 100%"><br>
 </p>
 
-<p style="margin-bottom: 0cm; line-height: 100%"><font face="Century Schoolbook L, serif">
+<p style="margin-bottom: 0cm; margin-left:0.5cm;line-height: 100%"><font face="Century Schoolbook L, serif">
 These three APIs correspond to three main functions in this package:</font>
 </p>
-<p style="margin-bottom: 0cm; line-height: 100%"><font face="Century Schoolbook L, serif">
-<b>(1) tts_google():</b> English is supported now.</font>
+<p style="margin-bottom: 0cm;margin-left:0.5cm; line-height: 100%"><font face="Century Schoolbook L, serif">
+(1) tts_google(): English is supported now.</font>
 </p>
-<p style="margin-bottom: 0cm; line-height: 100%"><font face="Century Schoolbook L, serif">
-<b>(2) tts_ITRI():</b> English and Chinese (both traditional and simplified) are supported now. In following version, I'll add more features, like change the speaking speed and speaker gender. (<a href="/reminder_on_ITRI.html"><font color="red">Reminder</font></a>)</font>
+<p style="margin-bottom: 0cm; margin-left:0.5cm;line-height: 100%"><font face="Century Schoolbook L, serif">
+(2) tts_ITRI(): English and Chinese (both traditional and simplified) are supported now.(<a href="/reminder_on_ITRI.html"><font color="red">Reminder</font></a>)</font>
 </p>
-<p style="margin-bottom: 0cm; line-height: 100%"><font face="Century Schoolbook L, serif">
-<b>(3) tts_MS():</b> This function is still under construction.</font>
-</p>
-
-<p style="margin-bottom: 0cm; line-height: 100%"><br>
+<p style="margin-bottom: 0cm;margin-left:0.5cm; line-height: 100%"><font face="Century Schoolbook L, serif">
+(3) tts_MS(): This function is still under construction.</font>
 </p>
 
 
-<p style="margin-bottom: 0cm; line-height: 100%"><font face="Century Schoolbook L, serif">The
-version 0.2 of package Rtts is already ready online. (<a href="http://r-forge.r-project.org/R/?group_id=2082"><b>Package Building</b></a>)
-
-<p style="margin-bottom: 0cm; line-height: 100%"><font face="Century Schoolbook L, serif">You can install
-it by running</font></p>
-
-<table width="469" cellpadding="4" cellspacing="0">
-	<col width="459">
-	<tr>
-		<td width="459" valign="top" style="border: 1px solid #000000; padding: 0.1cm">
-			<p><span style="display: inline-block; border: none; padding: 0cm"><code><span style="font-variant: normal"><font color="#444444"><font face="Century Schoolbook L, serif"><font size="2" style="font-size: 9pt"><span style="font-style: normal"><span style="font-weight: normal"><strong>install.packages(&quot;Rtts&quot;,
-			repos=&quot;http://R-Forge.R-project.org&quot;)</span></span></span></font></font></font></span></code></strong></p>
-		</td>
-	</tr>
-</table>
-
-<p style="margin-bottom: 0cm; line-height: 100%"><br>
+<p style="margin-bottom: 0cm; margin-left:0.5cm;line-height: 100%"><br>
 </p>
-<p style="margin-bottom: 0cm; line-height: 100%"><font face="Century Schoolbook L, serif"><b>About
+
+<p style="margin-bottom: 0cm; margin-left:0.5cm;line-height: 100%"><font face="Century Schoolbook L, serif"><b>About
 Author:</b></font></p>
-<p style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+<p style="margin-bottom: 0cm; margin-left:0.5cm;font-weight: normal; line-height: 100%">
 <font face="Century Schoolbook L, serif">DENG, Xiaodong
 (<a href="mailto:xd_deng@hotmail.com">xd_deng@hotmail.com</a>)</font></p>
-<p style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+<p style="margin-bottom: 0cm;margin-left:0.5cm; font-weight: normal; line-height: 100%">
 <font face="Century Schoolbook L, serif">Master in Science
 (Mathematics)</font></p>
-<p style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+<p style="margin-bottom: 0cm; margin-left:0.5cm;font-weight: normal; line-height: 100%">
 <font face="Century Schoolbook L, serif">Research Assistant, Saw Swee
 Hock School of Public Health, National University of Singapore</font></p>
-<p style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+<p style="margin-bottom: 0cm; margin-left:0.5cm;font-weight: normal; line-height: 100%">
 <font face="Century Schoolbook L, serif">Site: <a href="http://www.seekingqed.com/">www.seekingQED.com</a></font></p>
-<p style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+<p style="margin-bottom: 0cm; margin-left:0.5cm;font-weight: normal; line-height: 100%">
 <font face="Century Schoolbook L, serif">Github: <a href="https://github.com/XD-DENG">github.com/XD-DENG</a></font></p>
 <p>
 <ahref="/">
 <img src="/image/blacksmith.png" width="200" height="200" alt="R">
+<img src="/image/galleryhip.com_blacksmiths-at-work.html.gif" height="200" alt="R">
 </a>
 </p>
+
+
+
 
 </body>
 </html>
