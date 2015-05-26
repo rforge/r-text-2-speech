@@ -2,11 +2,10 @@
 \alias{tts_google}
 
 \title{
-Convert Text into Speech (voice files in .mp3 format)
+Convert Text into Speech
 }
 \description{
-Convert text into speech (voice files in .mp3 format) using the API offered by Google Translate (https://translate.google.com). 
-Note that this function can only help convert restricted-length text (roughly nchar(text)<=100).
+Convert text into speech (voice files in .mp3 format) using the API offered by Google Translate (https://translate.google.com). Only English is supported currently.
 }
 \usage{
 tts_google(content = "hello world", destfile = paste(getwd(),"r.mp3",sep="/"))
@@ -14,24 +13,23 @@ tts_google(content = "hello world", destfile = paste(getwd(),"r.mp3",sep="/"))
 
 \arguments{
   \item{content}{
-  The content to convert into speech. In string format
+  The content to convert into speech. In string format.
 }
   \item{destfile}{
   where to save the voice file generated and the voice file name. Default path is the current working path.
 }
-
 }
 \details{
-  Convert text into speech (voice files in mp3 format) using the API offered by Google Translate. No other softwares are required to use this function.
+  Convert text into speech (voice files in .mp3 format) using the API offered by Google Translate. No extra software or platform support is required to use this function.
 }
 \note{
-   This function can only help convert restricted-length text (roughly nchar(text)<=100).
+   [1] This function can only help convert restricted-length text (roughly nchar(text)<=100); [2] Try to use only comma and period for separation.
 }
 \references{
 https://translate.google.com
 }
 \author{
-  DENG Xiaodong
+  Xiaodong Deng
 }
 \examples{
   tts_google("Hello.")
