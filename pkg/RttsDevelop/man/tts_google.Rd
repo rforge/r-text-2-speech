@@ -2,45 +2,39 @@
 \alias{tts_google}
 
 \title{
-Convert Text into Speech (voice files in .mp3 format)
+Convert Text into Speech
 }
 \description{
-Convert text into speech (voice files in .mp3 format) using the trial API offered by Google Translate (https://translate.google.com). Note that this function can only help convert restricted-length text (roughly nchar(text)<=100).
+Convert text into speech (voice files in .mp3 format) using the API offered by Google Translate (https://translate.google.com). Only English is supported for this function.
+
+Internet connection is required.
 }
 \usage{
-tts_google(content = "hello world", destfile = location)
+tts_google(content = "hello world", destfile = paste(getwd(),"r.mp3",sep="/"))
 }
 
 \arguments{
   \item{content}{
-  The content to convert into speech. In string format
+  The content to convert into speech. In string format.
 }
   \item{destfile}{
   where to save the voice file generated and the voice file name. Default path is the current working path.
 }
 }
 \details{
-  Convert text into speech (voice files in mp3 format) using the API offered by Google Translate. No other softwares are required to use this function.
+  Convert text into speech (voice files in .mp3 format) using the API offered by Google Translate. No extra software or platform support is required to use this function.
+}
+\note{
+   [1] This function can only help convert restricted-length text (roughly nchar(text)<=100); [2] Try to use only comma and period for separation.
 }
 \references{
 https://translate.google.com
 }
 \author{
-  DENG Xiaodong
-}
-\note{
-
-}
-
-%% ~Make other sections like Warning with \section{Warning }{....} ~
-
-\seealso{
-%% ~~objects to See Also as \code{\link{help}}, ~~~
+  Xiaodong Deng
 }
 \examples{
-  tts_google("Hello world.")
+  # Used default value for destfile argument, 
+  # so the generated voice file will be saved in the working directory.
+  tts_google("Hello.")
 }
-% Add one or more standard keywords, see file 'KEYWORDS' in the
-% R documentation directory.
-\keyword{ text}
-\keyword{ speech }% __ONLY ONE__ keyword per line

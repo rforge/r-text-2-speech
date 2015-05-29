@@ -1,59 +1,67 @@
 \name{tts_ITRI}
 \alias{tts_ITRI}
-
+%- Also NEED an '\alias' for EACH other topic documented here.
 \title{
-Convert Text into Speech (voice files in .flv format)
+Convert Text into Speech Using ITRI TTS service via SOAP
 }
 \description{
-Convert text into speech (voice files in .flv format) using the trial API offered by ITRI TTS @web (https://tts.itri.org.tw). English and Chinese (both traditional and simplified) are supported. 
+Using the API offered by ITRI TTS (http://tts.itri.org.tw/), this function helps convert text into speech. After sending the text, corresponding voice file will be downloaded and saved.
 
-Internet connection and PHP on user's machine are required.
+English and Chinese (both tradition and simplified) are supported. And users can specify the speaker accent, speed, and volume (default setting is given).
 
-Please NOTE that if you're using the default test ITRI account, the text you submitted may be released. You may want to register a private ITRI account for FREE: http://tts.itri.org.tw
+Internet connection is required.
 }
 \usage{
-tts_ITRI(text ="hello",account="test-for-r",password ="test1for1r",destfile = ...)
+tts_ITRI(content, speed, volume, speaker, destfile)
 }
-
+%- maybe also 'usage' for other objects documented here.
 \arguments{
-  \item{text}{
-  The text to convert into speech. In string format.
+  \item{content}{
+The text user would like to convert into speech. The content can be English and Chinese (both traditional and simplified).
 }
-  \item{account}{
-  ITRI TTS @web account. You can register freely on ITRI TTS @web website (http://tts.itri.org.tw)
+  \item{speed}{
+The speed of the speaker in the voice file generated. The range is -10 to 10, in numerical type. Default value is 0.
 }
-  \item{password}{
-  ITRI TTS @web account password.
+  \item{volume}{
+  The volume of the speaker in the voice file generated. The range is 0 to 100, in numerical type. Default value is 100.
+}
+  \item{speaker}{
+Select the speaker. The applicable options include:
+
+[1] English & Chinese: "Bruce", "Theresa", "Angela", "MCHEN_Bruce", "MCHEN_Joddess"; 
+
+[2] Only English: "ENG_Bob", "ENG_Alice", "ENG_Tracy".
+
+Default value is "Bruce".
+
 }
   \item{destfile}{
-  The path to save the audio files generated plus the file name (including the postfix).
+Where to save the generated voice file. It should contain both the path and the full file name. If leave blank, the file will be saved in the working directory by default.
 }
 }
+
 \details{
-  Convert text into speech (voice files in flv format) using the API offered by ITRI TTS @web. PHP is required on user's machine.
-  
-  For better privacy protection, i.e. keeping your text away from being released, it's encouraged to register an ITRI account for FREE: http://tts.itri.org.tw
+This function sends the text to the ITRI TTS (http://tts.itri.org.tw/) server via SOAP, and download the voice file from it.
 }
 \references{
-http://tts.itri.org.tw
-
+http://tts.itri.org.tw/development/web_service_api.php
 }
 \author{
-  DENG Xiaodong
+Xiaodong Deng
 }
 \note{
+Please note that using this function may make the text contents you submitted released unpurposely. 
 
+The text contents you submitted and corresponding voice files will be saved on the ITRI TTS server for 24 hours and others can access (as this package uses a default account).
+
+Please give consideration if the text you want to convert is confidential.
 }
 
-%% ~Make other sections like Warning with \section{Warning }{....} ~
-
-\seealso{
-%% ~~objects to See Also as \code{\link{help}}, ~~~
-}
 \examples{
-  tts_ITRI("Hello world.", "test-for-r", "test1for1r")
+text <- "Hello."
+
+# Using default setting: speed=0, volume=100, speaker="Bruce".
+# Using default value for destfile argument, 
+# i.e. save the voice file in the working directory.
+tts_ITRI(text)
 }
-% Add one or more standard keywords, see file 'KEYWORDS' in the
-% R documentation directory.
-\keyword{ text}
-\keyword{ speech }% __ONLY ONE__ keyword per line

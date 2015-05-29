@@ -1,101 +1,47 @@
-tts_ITRI <- function(text="hello",
-                     account="test-for-r",
-                     password="test1for1r",
-                     destfile=paste(getwd(),"/RTTS.flv",sep="")){
+tts_ITRI <- function(content, 
+                     speed=0,
+                     volume=100,
+                     speaker="Bruce",
+                     destfile=paste(getwd(),"r.wav",sep="/")){
   
-  
-  # part 0-1: check if php is installed
-  
-  cat("\nREQUIREMENT CHECK:\n")
-  if(Sys.info()[1]=="Linux"){
-    check_result <- grep("php",system("ls /usr/bin", intern=TRUE))
-  }
-  if(Sys.info()[1]=="Windows"){
-    cat("Windows not supported temporarily.")
-    return()
-  }
-  if(!Sys.info()[1] %in% c("Linux","Windows")){
-    cat("Your platform (operation system) can't be detected.\n")
+  # check-1:
+  #if the speaker argument meet the requirement
+  if(!speaker %in% c("Bruce", "Theresa", "Angela", 
+                    "MCHEN_Bruce", "MCHEN_Joddess",
+                    "ENG_Bob", "ENG_Alice", "ENG_Tracy")){
+    cat("The value for 'speaker' argument is invalid.")
     return()
   }
   
-  if(length(check_result)>0){
-    cat("php is well installed on your machine. ... WELL\n\n")
-  }else{
-    cat("php is not installed on your machine (Linux: /usr/bin).\nPlease install php prior using this package.\n\n")
+  # check-2:
+  #if the speed argument meet the requirement
+  if(speed > 10 | speed < -10){
+    cat("The value for 'speed' argument is invalid.")
+    return()
+  }
+  
+  # check-3:
+  #if the volume argument meet the requirement
+  if(volume > 100 | volume < 0){
+    cat("The value for 'volumn' argument is invalid.")
     return()
   }
   
   
+  tmp_id <- tts_ITRI_getID(content, speed, volume, speaker)
   
-  # part 0-2: check if can access the API
   
-  # part 1: get file ID
-  
-  get_ID <- function(text,account,password){
-    a="php -r "
-    b_1 <- '$client = new SoapClient("http://tts.itri.org.tw/TTSService/Soap_1_3.php?wsdl");
-  $result=$client->ConvertText('
-    b_2 <- ',"Theresa",100, 0, "flv");echo $result;'
-    
-    b <- paste(b_1,account,',',password,',',text,b_2,sep='"')
-    query <- paste(a,b," ",sep="'")
-    
-    #   write(query,file="/home/deng/TTS_1.bash")
-    # 
-    #   query_result_ID <- system("bash /home/deng/TTS_1.bash",intern = TRUE)
-    query_result <- system(query, intern = TRUE)
-    
-    # Here we can check if the loging is valid by the result( if the account or password is valid)
-    if(strsplit(query_result,split = "&")[[1]][2]=="invalid login"){
-      cat("Invalid login\n")
-      cat("Please check your account ID or password.\n\n")
-      return("INVALID_LOGIN")
-    }
-    
-    cat("ID obtained: ",
-        strsplit(query_result,split = "&")[[1]][3],
-        "\n")
-    return(strsplit(query_result,split = "&")[[1]][3])
+  # need to insert a function to check if the convert is completed
+  # here we check if the convert is completed. If not, wait for a while and check again
+  while(tts_ITRI_getStatus(tmp_id)!="completed"){
+    Sys.sleep(0.1)
   }
   
-  # part 2: get file URL
-  get_url <- function(account,password,ID){
-    a="php -r "
-    b_1 <- '$client = new SoapClient("http://tts.itri.org.tw/TTSService/Soap_1_3.php?wsdl");$result=$client->GetConvertStatus('
-    
-    b_2 <- ');echo $result;'
-    
-    b <- paste(b_1,account,',',password,',',ID,b_2,sep='"')
-    
-    query <- paste(a,b," ",sep = "'")
-    
-    query_result_url <- system(query,intern = TRUE)
-    
-    return(query_result_url)
-  }
   
-  # part 3: download the file
-  query_ID <- get_ID(text,account,password)
-  if(query_ID=="INVALID_LOGIN"){
-    return()
-  }
+  tmp_url <- tts_ITRI_getURL(tmp_id)
+  binary_file <- getURLContent(tmp_url)
+  binary_file <- as.vector(binary_file)
+  writeBin(binary_file, destfile)
+  cat("The voice file is generated in:",destfile,"\n")
   
-  #as the ITRI needs some time to process, 
-  #so here we check if the process is completed
-  cat("\nITRI TTS is processing your request.\n")
-  cat("A few seconds may be needed.\n\n")
-  cat("Please ignore the potential messages \"PHP Notice\" and wait a moment.")
-  
-  while(strsplit(get_url(account,password,ID = query_ID),split = "&")[[1]][4]!="completed"){
-    Sys.sleep(1)
-  }
-    
-  url_obtained <- strsplit(get_url(account,password,ID = query_ID), split="&")[[1]][5]
-  cat("\nURL obtained: \n", url_obtained, "\n\n")
-  
-  download.file(url = url_obtained, destfile = destfile)
-  cat("\nThe voice file is saved in: ", destfile)
 }
-
-
